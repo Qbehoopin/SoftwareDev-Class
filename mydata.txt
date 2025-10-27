@@ -1,0 +1,4 @@
+I like reading books.
+I enjoy coding.
+I play basketball.
+I am learning file handling in Python!
