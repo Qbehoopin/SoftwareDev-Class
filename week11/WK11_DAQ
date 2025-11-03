@@ -1,0 +1,56 @@
+# Simple Calculator with Error Handling
+# Made easy for college students to understand :)
+
+while True:
+    print("\n=== Simple Calculator ===")
+    print("Type 'exit' at any time to quit.\n")
+
+    # Ask for the first number
+    num1 = input("Enter the first number: ")
+    if num1.lower() == "exit":
+        break
+
+    # Ask for the second number
+    num2 = input("Enter the second number: ")
+    if num2.lower() == "exit":
+        break
+
+    # Ask for the operation
+    operation = input("Enter an operation (+, -, *, /): ")
+    if operation.lower() == "exit":
+        break
+
+    try:
+        # Try to convert inputs to numbers
+        num1 = float(num1)
+        num2 = float(num2)
+
+        # Perform the chosen operation
+        if operation == "+":
+            result = num1 + num2
+        elif operation == "-":
+            result = num1 - num2
+        elif operation == "*":
+            result = num1 * num2
+        elif operation == "/":
+            # Handle division by zero
+            result = num1 / num2
+        else:
+            # Unsupported operation
+            print("Error: Unsupported operation! Please use +, -, *, or /.")
+            continue  # Skip the rest and ask again
+
+        print(f"The result of {num1} {operation} {num2} = {result}")
+
+    except ValueError:
+        print("Error: Please enter valid numbers! (e.g. 3, 4.5)")
+    except ZeroDivisionError:
+        print("Error: You can’t divide by zero!")
+    except Exception as e:
+        # Catch any other unexpected errors
+        print("Something went wrong:", e)
+    finally:
+        # This block always runs
+        print("Calculation complete.")
+
+print("\nGoodbye! Thanks for using the calculator :)")
